@@ -1,0 +1,92 @@
+body {
+  background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80");
+  font-size: 40px;
+  color: white;
+}
+.App {
+}
+
+/*header*/
+header {
+  text-align: center;
+  
+}
+.reload {
+  color: yellow;
+  text-decoration: none;
+}
+.reload:hover {
+  color: lightyellow;
+  text-decoration: none;
+}
+/*axios*/
+.cities-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cities {
+  border: 1px solid black;
+  margin-bottom: 10px;
+  padding: 50px;
+  width: 80%;
+  text-align: center;
+  background: white;
+  color: black;
+  font-size: 20px;
+}
+.cities > img {
+  width: 500px;
+  height: 300px;
+}
+.cities > .info-text {
+  text-align: left;
+}
+/*form*/
+.form-continents {
+  margin: 0px auto;
+  width: 70%;
+}
+fieldset {
+  border: solid yellow 10px;
+}
+.form-continents label {
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.form-continents {
+  text-align: center;
+}
+
+.form-row button {
+  margin-left: 10px;
+  margin-top: 10px;
+  color: #ffffff !important;
+  background: #f6b93b;
+  border-color: #f6b93b !important;
+  transition: all 0.4s ease 0s;
+  padding: 10px;
+}
+
+.form-row button:hover {
+  color: #494949 !important;
+  border-radius: 50px;
+  border-color: #494949 !important;
+  transition: all 0.3s ease 0s;
+}
+/*form write city*/
+
+.form-write-city {
+  margin: 20px auto;
+  width: 70%;
+  text-align: center;
+}
+.form-write-city .form-row {
+  margin-bottom: 10px;
+}
+.imageUrl {
+  width: 700px;
+}
+.form-write-city label {
+  margin-right: 20px;
+}
