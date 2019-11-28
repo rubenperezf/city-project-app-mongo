@@ -62,22 +62,52 @@ const postCity = async (request, response) => {
         }
     }
 
-    const deleteCity = async (request, response) => {
+    const deleteCity = async (request,response) =>{
         try{
-            console.log('DELETE CITY');
-            var citiesInstance = await CitiesModel.deleteOne(request.query)
-            console.log(citiesInstance);
-            response.send({ citiesInstance})
+            console.log("DELETE City")
+            var citiesInstance = await CitiesModel.deleteOne({'_id':request.params.id})
+            console.log(citiesInstance)
+            response.send(citiesInstance)
         }catch(error){
             response.status(500).send(error)
         }
      }
 
+    const updateCity = async (request,response) =>{
+        try{
+            console.log("PUT CITY")
+            var citiesInstance = await CitiesModel.findOneAndUpdate({'name':request.params.name},request.body)
+            console.log(citiesInstance)
+            response.send(citiesInstance)
+        }catch(error){
+            response.status(500).send(error)
+        }
+     }
+
+     const getCityById = async (request,response) =>{
+        try{
+  
+             console.log("GET CITY BY ID")
+             var citiesInstance = await CitiesModel.find({'_id':request.params.id})
+             console.log(citiesInstance)
+             response.send(citiesInstance)
+        } catch(error){
+            response.status(500).send(error)
+        }
+     }
+     
+     
+    
+
     app.route('/importantCities')
     .post(postCity)
     .get(getCities)
+    .put(updateCity)
+    
     app.route('/importantCities/:id')
     .delete(deleteCity)
+    .get(getCityById)
+    
 
 
 app.listen(PORT,()=>{
