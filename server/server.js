@@ -74,15 +74,18 @@ const postCity = async (request, response) => {
      }
 
     const updateCity = async (request,response) =>{
-        try{
-            console.log("PUT CITY")
-            var citiesInstance = await CitiesModel.findOneAndUpdate({'name':request.params.name},request.body)
-            console.log(citiesInstance)
-            response.send(citiesInstance)
-        }catch(error){
-            response.status(500).send(error)
-        }
-     }
+
+    try {
+        console.log("PUT City")
+        var citiesInstance = new CitiesModel(request.body)
+        console.log(citiesInstance)
+        const created = await CitiesModel.findOneAndUpdate({'_id':request.params.id},request.body)
+        response.send(created)
+    } catch (error) {
+        response.status(500).send(error)
+    }
+}
+     
 
      const getCityById = async (request,response) =>{
         try{
@@ -102,11 +105,14 @@ const postCity = async (request, response) => {
     app.route('/importantCities')
     .post(postCity)
     .get(getCities)
-    .put(updateCity)
+
+
     
     app.route('/importantCities/:id')
     .delete(deleteCity)
     .get(getCityById)
+    .put(updateCity)
+
     
 
 
